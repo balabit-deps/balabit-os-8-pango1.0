@@ -1,0 +1,13 @@
+#!/bin/sh
+# autopkgtest check: Run the installed-tests to verify pango works correctly
+# (C) 2013 Canonical Ltd.
+# Author: Iain Lane <iain.lane@canonical.com>
+
+set -e
+
+export XDG_RUNTIME_DIR="$AUTOPKGTEST_TMP"
+
+mkdir -p "$AUTOPKGTEST_TMP/locales"
+localedef -i en_US -f UTF-8 "$AUTOPKGTEST_TMP/locales/en_US.UTF-8"
+export LOCPATH="$AUTOPKGTEST_TMP/locales"
+dbus-run-session -- xvfb-run -a gnome-desktop-testing-runner pango

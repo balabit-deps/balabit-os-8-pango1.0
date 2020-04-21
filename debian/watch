@@ -1,0 +1,3 @@
+version=4
+https://download.gnome.org/sources/pango/([\d\.]+[02468])/ \
+	pango@ANY_VERSION@\.tar\.xz
